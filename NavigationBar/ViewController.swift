@@ -8,35 +8,53 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var barName: UILabel!
+    @IBOutlet var beerLitres: [UILabel]!
+    var earnings: Decimal = 0
+    @IBOutlet var beerNames: [UILabel]!
     @IBOutlet var alcoholButtons: [UIButton]!
-    @IBOutlet var labelNames: [UILabel]!
-    var beerArray:[String] = ["Пиво Солнышко","Пиво Арбузное","Пиво Этиловое","Пиво Метиловое","Пиво Лидское"]
-    @IBAction func beerBuying(_ sender: UIButton) {
-        let row = sender.tag / 10
-        let column = sender.tag % 10
-        var result: String
-        switch column{
-        case 0:
-           result = "\(beerArray[row]) 0,33 л."
-        case 1:
-            result = "\(beerArray[row]) 0,5 л."
-        default:
-            result = "\(beerArray[row]) 1,0 л."
-        }
-        result = "Было куплено \(result)"
-        print(result)
-    }
+    var beerArray:[Beer] = [
+        Beer(name: "Heineken", litre: 100, type: .light, filter: .filltered, cost: (6,12,24)),
+        Beer(name: "Guinness", litre: 90, type: .dark, filter: .unfiltered, cost: (8,16,32)),
+        Beer(name: "Stella Artois", litre: 86, type: .light, filter: .filltered, cost: (7,14,28)),
+        Beer(name: "Hoegaarden", litre: 15, type: .light, filter: .unfiltered, cost: (19,38,76)),
+        Beer(name: "Corona", litre: 1000, type: .light, filter: .filltered, cost: (27,54,108)),
+        Beer(name: "Newcastle Brown Ale", litre: 666, type: .dark, filter: .unfiltered, cost: (5,10,20)),
+        Beer(name: "Erdinger", litre: 35, type: .light, filter: .unfiltered, cost: (67,134,268)),
+        Beer(name: "Samuel Adams ", litre: 278, type: .light, filter: .filltered, cost: (53,106,212)),
+        Beer(name: "Chimay Blue", litre: 99, type: .dark, filter: .unfiltered, cost: (59,118,236)),
+        Beer(name: "Pilsner Urquell", litre: 44, type: .light, filter: .filltered, cost: (49,98,196)),
+        Beer(name: "Trappistes Rochefort", litre: 108, type: .dark, filter: .unfiltered, cost: (23,46,92)),
+        Beer(name: "Duvel", litre: 146.7, type: .light, filter: .filltered, cost: (95,190,380)),
+        Beer(name: "Krombacher Pils", litre: 78.2, type: .light, filter: .filltered, cost: (35,70,140)),
+        Beer(name: "Leffe Brune", litre: 13, type: .dark, filter: .unfiltered, cost: (25,50,100)),
+        Beer(name: "Sierra Nevada Pale", litre: 5, type: .light, filter: .filltered, cost: (73,146,292))]
     override func viewDidLoad() {
         super.viewDidLoad()
-        for index in 0..<labelNames.count {
-            labelNames[index].text = beerArray[index]
-        }
-        barName.text = "Кролпаб"
-        
+        self.title = """
+        паб "Пивон"
+        """
     }
-    
-
+    override func viewWillAppear(_ animated: Bool) {
+        loadAlcoholArray()
+        print(earnings)
+    }
+    func loadAlcoholArray () {
+        for (index,alcoholButton) in alcoholButtons.enumerated() {
+            alcoholButton.tag = index
+            beerNames[index].font = UIFont.boldSystemFont(ofSize: 24.0)
+            beerNames[index].text = beerArray[index].name
+            beerLitres[index].text = "Остаток пива: \(beerArray[index].litre) л."
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is BeerDescriptionViewController,
+           let destination = segue.destination as? BeerDescriptionViewController,
+           let senderAsButton = sender as? UIButton
+        {
+            destination.parentController = self
+            destination.selectedBeer = beerArray[senderAsButton.tag]
+            destination.indexOfSelectedBeer = senderAsButton.tag
+        }
+    }
 }
 

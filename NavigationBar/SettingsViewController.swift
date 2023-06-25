@@ -13,6 +13,14 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProfileViewController" ,
+           let destination = segue.destination as? ProfileViewController {
+            destination.name = "Артем Черныш"
+            destination.parentController = self
+        }
+    }
     @IBAction func refreshButtonAction(_ sender: Any) {
         if refreshButton.titleLabel?.text! == "Новая смена" {
             refreshButton.setTitle("Обновленная смена", for: .normal)
