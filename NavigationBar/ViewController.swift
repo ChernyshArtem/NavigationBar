@@ -8,10 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     @IBOutlet var beerLitres: [UILabel]!
-    var earnings: Decimal = 0
     @IBOutlet var beerNames: [UILabel]!
     @IBOutlet var alcoholButtons: [UIButton]!
+    
+    var earnings: Decimal = 0
+    
     var beerArray:[Beer] = [
         Beer(name: "Heineken", litre: 100, type: .light, filter: .filltered, cost: (6,12,24)),
         Beer(name: "Guinness", litre: 90, type: .dark, filter: .unfiltered, cost: (8,16,32)),
@@ -28,15 +31,13 @@ class ViewController: UIViewController {
         Beer(name: "Krombacher Pils", litre: 78.2, type: .light, filter: .filltered, cost: (35,70,140)),
         Beer(name: "Leffe Brune", litre: 13, type: .dark, filter: .unfiltered, cost: (25,50,100)),
         Beer(name: "Sierra Nevada Pale", litre: 5, type: .light, filter: .filltered, cost: (73,146,292))]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = """
-        паб "Пивон"
-        """
     }
     override func viewWillAppear(_ animated: Bool) {
         loadAlcoholArray()
-        print(earnings)
+        sendEarningToSettings()
     }
     func loadAlcoholArray () {
         for (index,alcoholButton) in alcoholButtons.enumerated() {
@@ -46,6 +47,7 @@ class ViewController: UIViewController {
             beerLitres[index].text = "Остаток пива: \(beerArray[index].litre) л."
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is BeerDescriptionViewController,
            let destination = segue.destination as? BeerDescriptionViewController,
@@ -55,6 +57,13 @@ class ViewController: UIViewController {
             destination.selectedBeer = beerArray[senderAsButton.tag]
             destination.indexOfSelectedBeer = senderAsButton.tag
         }
+    }
+    
+    func sendEarningToSettings() {
+        let controllers = tabBarController?.viewControllers
+        let moreVC = controllers?.first { $0 is SettingsViewController } as! SettingsViewController
+        moreVC.earning = earnings
+        moreVC.menuController = self
     }
 }
 

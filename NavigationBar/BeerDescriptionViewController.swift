@@ -8,21 +8,25 @@
 import UIKit
 
 class BeerDescriptionViewController: UIViewController {
+    
     @IBOutlet weak var beerError: UILabel!
     @IBOutlet weak var beerLiter: UILabel!
-    weak var parentController: ViewController!
     @IBOutlet weak var buyBeerButton: UIButton!
-    var indexOfSelectedBeer: Int = 0
     @IBOutlet weak var costForOneBeerBottle: UILabel!
     @IBOutlet weak var litreSelectorSegment: UISegmentedControl!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    weak var parentController: ViewController!
+    var indexOfSelectedBeer: Int = 0
     var selectedBeer: Beer = Beer(name: "", litre: 0, type: .dark, filter: .filltered, cost: (0, 0, 0))
     var costForBottle: Decimal = 0
-    @IBOutlet weak var descriptionLabel: UILabel!
     var litreForBottle: Decimal = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingDataForView()
     }
+    
     @IBAction func buyBeer(_ sender: Any) {
         if selectedBeer.litre - litreForBottle > 0{
             selectedBeer.litre =  selectedBeer.litre - litreForBottle
@@ -34,6 +38,7 @@ class BeerDescriptionViewController: UIViewController {
         }
        soldSomeBeer()
     }
+    
     @IBAction func changeLitreSelectorSegmentAction(_ sender: Any) {
         costForOneBeerBottle.text = "Цена за бутылку "
         switch litreSelectorSegment.selectedSegmentIndex {
@@ -54,6 +59,7 @@ class BeerDescriptionViewController: UIViewController {
             return
         }
     }
+    
     func loadingDataForView() {
         self.title = "\(selectedBeer.name)"
         beerError.text = "Пива на складе хватает"
@@ -65,6 +71,7 @@ class BeerDescriptionViewController: UIViewController {
         descriptionLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
         descriptionLabel.text = "Описание: \(selectedBeer.type.rawValue), \(selectedBeer.filter.rawValue)"
     }
+    
     func soldSomeBeer() {
         parentController.beerArray[indexOfSelectedBeer] = selectedBeer
         parentController.loadAlcoholArray()

@@ -9,19 +9,21 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var nameOfUser: UILabel!
+    
     weak var parentController: SettingsViewController!
     var name:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Об авторе"
     }
+    
     @IBAction func LinkAction(_ sender: Any) {
         let message = "https://t.me/ChernyshArtem"
        UIApplication.shared.open(URL(string: message)!)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         nameOfUser.text = name
-    }
-    @IBAction func closeViewController(_ sender: Any) {
-        dismiss(animated: true)
     }
 }
