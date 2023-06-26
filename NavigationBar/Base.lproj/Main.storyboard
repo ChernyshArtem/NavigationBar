@@ -1297,104 +1297,103 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ошибка" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jed-6d-zgb">
-                                <rect key="frame" x="16" y="199.33333333333334" width="361" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Остаток пива" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpS-W6-MKm">
-                                <rect key="frame" x="16" y="228.33333333333334" width="361" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Размер бутылки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTc-IQ-lXu">
-                                <rect key="frame" x="16" y="257.33333333333331" width="361" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z9x-iA-eQ6">
-                                <rect key="frame" x="16" y="286.33333333333331" width="361" height="26"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="59P-fw-KJ7"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="0.45 л."/>
-                                    <segment title="0.70 л."/>
-                                    <segment title="1.4 л."/>
-                                </segments>
-                                <connections>
-                                    <action selector="changeLitreSelectorSegmentAction:" destination="JMk-Ns-LnV" eventType="valueChanged" id="d36-GI-CzU"/>
-                                </connections>
-                            </segmentedControl>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pub" translatesAutoresizingMaskIntoConstraints="NO" id="sav-VM-jAa">
-                                <rect key="frame" x="46.666666666666657" y="327.33333333333331" width="300" height="299.99999999999994"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="JMV-w1-2Zb"/>
-                                    <constraint firstAttribute="width" constant="300" id="kxd-gl-ocX"/>
-                                    <constraint firstAttribute="width" secondItem="sav-VM-jAa" secondAttribute="height" multiplier="1:1" id="l0T-FS-vZK"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGF-oN-xKO">
-                                <rect key="frame" x="16" y="731.66666666666663" width="361" height="102.33333333333337"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCT-KW-gaI">
+                                <rect key="frame" x="0.0" y="155" width="393" height="663"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Цена за бутылку 0.45:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcX-fj-nvo">
-                                        <rect key="frame" x="90.666666666666686" y="16" width="180" height="20"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlO-vz-Zyp">
-                                        <rect key="frame" x="119.66666666666666" y="52" width="122" height="34.333333333333343"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Купить пиво">
-                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="buyBeer:" destination="JMk-Ns-LnV" eventType="touchUpInside" id="Xtb-Rt-fJW"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Cwm-lg-eEP">
+                                        <rect key="frame" x="16" y="8" width="353.66666666666669" height="634.66666666666663"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAV-R2-b7a">
+                                                <rect key="frame" x="0.0" y="0.0" width="353.66666666666669" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ошибка" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jed-6d-zgb">
+                                                <rect key="frame" x="0.0" y="32.333333333333343" width="353.66666666666669" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Остаток пива" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpS-W6-MKm">
+                                                <rect key="frame" x="0.0" y="64.666666666666657" width="353.66666666666669" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Размер бутылки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTc-IQ-lXu">
+                                                <rect key="frame" x="0.0" y="97" width="353.66666666666669" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z9x-iA-eQ6">
+                                                <rect key="frame" x="0.0" y="129.33333333333331" width="353.66666666666669" height="26"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="59P-fw-KJ7"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="0.45 л."/>
+                                                    <segment title="0.70 л."/>
+                                                    <segment title="1.4 л."/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="changeLitreSelectorSegmentAction:" destination="JMk-Ns-LnV" eventType="valueChanged" id="d36-GI-CzU"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pub" translatesAutoresizingMaskIntoConstraints="NO" id="sav-VM-jAa">
+                                                <rect key="frame" x="0.0" y="166.33333333333329" width="353.66666666666669" height="353.66666666666674"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="sav-VM-jAa" secondAttribute="height" multiplier="1:1" id="l0T-FS-vZK"/>
+                                                </constraints>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGF-oN-xKO">
+                                                <rect key="frame" x="0.0" y="532" width="353.66666666666669" height="102.66666666666663"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Цена за бутылку 0.45:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcX-fj-nvo">
+                                                        <rect key="frame" x="86.666666666666671" y="15.999999999999998" width="180.33333333333331" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlO-vz-Zyp">
+                                                        <rect key="frame" x="116" y="52.333333333333371" width="121.66666666666669" height="34.333333333333343"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Купить пиво">
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="buyBeer:" destination="JMk-Ns-LnV" eventType="touchUpInside" id="Xtb-Rt-fJW"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="LlO-vz-Zyp" secondAttribute="bottom" constant="16" id="15n-DC-SPl"/>
+                                                    <constraint firstItem="LlO-vz-Zyp" firstAttribute="centerX" secondItem="vGF-oN-xKO" secondAttribute="centerX" id="Dl2-qE-nWr"/>
+                                                    <constraint firstItem="wcX-fj-nvo" firstAttribute="centerX" secondItem="LlO-vz-Zyp" secondAttribute="centerX" id="HHf-MH-gWv"/>
+                                                    <constraint firstItem="LlO-vz-Zyp" firstAttribute="top" secondItem="wcX-fj-nvo" secondAttribute="bottom" constant="16" id="MaY-f5-783"/>
+                                                    <constraint firstItem="wcX-fj-nvo" firstAttribute="top" secondItem="vGF-oN-xKO" secondAttribute="top" constant="16" id="k6p-Pn-5g2"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="LlO-vz-Zyp" secondAttribute="bottom" constant="16" id="15n-DC-SPl"/>
-                                    <constraint firstItem="LlO-vz-Zyp" firstAttribute="centerX" secondItem="vGF-oN-xKO" secondAttribute="centerX" id="Dl2-qE-nWr"/>
-                                    <constraint firstItem="wcX-fj-nvo" firstAttribute="centerX" secondItem="LlO-vz-Zyp" secondAttribute="centerX" id="HHf-MH-gWv"/>
-                                    <constraint firstItem="LlO-vz-Zyp" firstAttribute="top" secondItem="wcX-fj-nvo" secondAttribute="bottom" constant="16" id="MaY-f5-783"/>
-                                    <constraint firstItem="wcX-fj-nvo" firstAttribute="top" secondItem="vGF-oN-xKO" secondAttribute="top" constant="16" id="k6p-Pn-5g2"/>
+                                    <constraint firstItem="Cwm-lg-eEP" firstAttribute="leading" secondItem="RCT-KW-gaI" secondAttribute="leading" constant="16" id="2mW-Tq-XLn"/>
+                                    <constraint firstItem="sav-VM-jAa" firstAttribute="width" secondItem="RCT-KW-gaI" secondAttribute="width" multiplier="0.9" id="3LD-1c-VbP"/>
+                                    <constraint firstItem="Cwm-lg-eEP" firstAttribute="top" secondItem="RCT-KW-gaI" secondAttribute="top" constant="8" id="Abt-fO-6EE"/>
+                                    <constraint firstAttribute="trailing" secondItem="Cwm-lg-eEP" secondAttribute="trailing" constant="16" id="IlS-8h-tc3"/>
+                                    <constraint firstAttribute="bottom" secondItem="Cwm-lg-eEP" secondAttribute="bottom" constant="8" id="d6V-RL-fRX"/>
                                 </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAV-R2-b7a">
-                                <rect key="frame" x="16" y="171" width="361" height="20.333333333333343"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4un-xf-wmb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="4un-xf-wmb" firstAttribute="trailing" secondItem="Jed-6d-zgb" secondAttribute="trailing" constant="16" id="0Ok-mZ-eCU"/>
-                            <constraint firstItem="z9x-iA-eQ6" firstAttribute="leading" secondItem="4un-xf-wmb" secondAttribute="leading" constant="16" id="4Ub-Ks-dg8"/>
-                            <constraint firstItem="wTc-IQ-lXu" firstAttribute="top" secondItem="kpS-W6-MKm" secondAttribute="bottom" constant="8" id="9JT-QS-800"/>
-                            <constraint firstItem="JAV-R2-b7a" firstAttribute="leading" secondItem="4un-xf-wmb" secondAttribute="leading" constant="16" id="E3H-Wd-cnr"/>
-                            <constraint firstItem="JAV-R2-b7a" firstAttribute="top" secondItem="4un-xf-wmb" secondAttribute="top" constant="16" id="EPh-ZV-s3e"/>
-                            <constraint firstItem="vGF-oN-xKO" firstAttribute="bottom" secondItem="4un-xf-wmb" secondAttribute="bottom" constant="16" id="FY5-bt-Om3"/>
-                            <constraint firstItem="Jed-6d-zgb" firstAttribute="top" secondItem="JAV-R2-b7a" secondAttribute="bottom" constant="8" id="Glq-9F-VbI"/>
-                            <constraint firstItem="Jed-6d-zgb" firstAttribute="leading" secondItem="4un-xf-wmb" secondAttribute="leading" constant="16" id="JNp-gW-O12"/>
-                            <constraint firstItem="vGF-oN-xKO" firstAttribute="leading" secondItem="4un-xf-wmb" secondAttribute="leading" constant="16" id="MO5-wN-YuS"/>
-                            <constraint firstItem="4un-xf-wmb" firstAttribute="trailing" secondItem="JAV-R2-b7a" secondAttribute="trailing" constant="16" id="RHs-Bk-URV"/>
-                            <constraint firstItem="sav-VM-jAa" firstAttribute="centerX" secondItem="UdF-S5-PC5" secondAttribute="centerX" id="gpJ-2Y-R1b"/>
-                            <constraint firstItem="kpS-W6-MKm" firstAttribute="top" secondItem="Jed-6d-zgb" secondAttribute="bottom" constant="8" id="mjP-RH-kee"/>
-                            <constraint firstAttribute="trailing" secondItem="vGF-oN-xKO" secondAttribute="trailing" constant="16" id="n5H-Iy-EeJ"/>
-                            <constraint firstItem="z9x-iA-eQ6" firstAttribute="top" secondItem="wTc-IQ-lXu" secondAttribute="bottom" constant="8" id="o0k-Xe-ZbI"/>
-                            <constraint firstItem="kpS-W6-MKm" firstAttribute="leading" secondItem="4un-xf-wmb" secondAttribute="leading" constant="16" id="sw2-40-U3v"/>
-                            <constraint firstItem="sav-VM-jAa" firstAttribute="top" secondItem="z9x-iA-eQ6" secondAttribute="bottom" constant="16" id="tgb-9R-gMw"/>
-                            <constraint firstItem="wTc-IQ-lXu" firstAttribute="leading" secondItem="4un-xf-wmb" secondAttribute="leading" constant="16" id="uB4-0Y-rqm"/>
-                            <constraint firstItem="4un-xf-wmb" firstAttribute="trailing" secondItem="z9x-iA-eQ6" secondAttribute="trailing" constant="16" id="ufk-Ni-uQh"/>
-                            <constraint firstItem="4un-xf-wmb" firstAttribute="trailing" secondItem="kpS-W6-MKm" secondAttribute="trailing" constant="16" id="v1w-3y-crm"/>
-                            <constraint firstItem="4un-xf-wmb" firstAttribute="trailing" secondItem="wTc-IQ-lXu" secondAttribute="trailing" constant="16" id="y5l-XN-iFW"/>
+                            <constraint firstItem="RCT-KW-gaI" firstAttribute="leading" secondItem="4un-xf-wmb" secondAttribute="leading" id="3g9-p4-AjO"/>
+                            <constraint firstItem="RCT-KW-gaI" firstAttribute="top" secondItem="4un-xf-wmb" secondAttribute="top" id="Jp8-HJ-4f3"/>
+                            <constraint firstItem="4un-xf-wmb" firstAttribute="bottom" secondItem="RCT-KW-gaI" secondAttribute="bottom" id="nMT-f3-8HN"/>
+                            <constraint firstItem="4un-xf-wmb" firstAttribute="trailing" secondItem="RCT-KW-gaI" secondAttribute="trailing" id="wYn-fD-yxh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ymg-aT-VnR"/>
@@ -1409,7 +1408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vN-Rc-mDe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-231" y="-1233"/>
+            <point key="canvasLocation" x="-231.29770992366412" y="-1233.0985915492959"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
