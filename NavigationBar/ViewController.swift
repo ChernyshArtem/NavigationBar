@@ -34,11 +34,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    override func viewWillAppear(_ animated: Bool) {
         loadAlcoholArray()
-        sendEarningToSettings()
     }
+    
     func loadAlcoholArray () {
         for (index,alcoholButton) in alcoholButtons.enumerated() {
             alcoholButton.tag = index
@@ -47,23 +45,28 @@ class ViewController: UIViewController {
             beerLitres[index].text = "Остаток пива: \(beerArray[index].litre) л."
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is BeerDescriptionViewController,
-           let destination = segue.destination as? BeerDescriptionViewController,
-           let senderAsButton = sender as? UIButton
-        {
-            destination.parentController = self
-            destination.selectedBeer = beerArray[senderAsButton.tag]
-            destination.indexOfSelectedBeer = senderAsButton.tag
+
+    @IBAction func openBeerDescription(_ sender: UIButton) {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BeerDescriptionViewController") as? BeerDescriptionViewController{
+            vc.parentController = self
+            vc.selectedBeer = beerArray[sender.tag]
+            vc.indexOfSelectedBeer = sender.tag
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     
-    func sendEarningToSettings() {
-        let controllers = tabBarController?.viewControllers
-        let moreVC = controllers?.first { $0 is SettingsViewController } as! SettingsViewController
-        moreVC.earning = earnings
-        moreVC.menuController = self
-    }
 }
 
+extension ViewController: SoldBeer {
+    func refreshBeerBar(indexOfBeer: Int, beer: Beer) {
+            beerArray[indexOfBeer] = beer
+            beerNames[indexOfBeer].font = UIFont.boldSystemFont(ofSize: 24.0)
+            beerNames[indexOfBeer].text = beerArray[indexOfBeer].name
+            beerLitres[indexOfBeer].text = "Остаток пива: \(beerArray[indexOfBeer].litre) л."
+    }
+    func sendToBeerManager(costOfBeer: Decimal) {
+        var earningDay: Decimal = BarManager.managment.getEarningDay()
+        earningDay+=costOfBeer
+        BarManager.managment.setEarningDay(newValue: earningDay)
+    }
+}

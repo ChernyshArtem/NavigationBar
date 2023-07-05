@@ -16,7 +16,7 @@ class BeerDescriptionViewController: UIViewController {
     @IBOutlet weak var litreSelectorSegment: UISegmentedControl!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    weak var parentController: ViewController!
+    var parentController: SoldBeer!
     var indexOfSelectedBeer: Int = 0
     var selectedBeer: Beer = Beer(name: "", litre: 0, type: .dark, filter: .filltered, cost: (0, 0, 0))
     var costForBottle: Decimal = 0
@@ -36,13 +36,14 @@ class BeerDescriptionViewController: UIViewController {
             beerError.textColor = .red
             buyBeerButton.isEnabled = false
         }
-       soldSomeBeer()
+        checkStatementForBuyingBeer()
+        parentController.sendToBeerManager(costOfBeer: costForBottle)
+        parentController.refreshBeerBar(indexOfBeer: indexOfSelectedBeer, beer: selectedBeer)
     }
     
     @IBAction func changeLitreSelectorSegmentAction(_ sender: Any) {
         costForOneBeerBottle.text = "Цена за бутылку "
         switch litreSelectorSegment.selectedSegmentIndex {
-        
         case 0:
             litreForBottle = 0.45
             costForBottle = selectedBeer.cost.0
@@ -58,6 +59,7 @@ class BeerDescriptionViewController: UIViewController {
         default:
             return
         }
+        checkStatementForBuyingBeer()
     }
     
     func loadingDataForView() {
@@ -72,9 +74,15 @@ class BeerDescriptionViewController: UIViewController {
         descriptionLabel.text = "Описание: \(selectedBeer.type.rawValue), \(selectedBeer.filter.rawValue)"
     }
     
-    func soldSomeBeer() {
-        parentController.beerArray[indexOfSelectedBeer] = selectedBeer
-        parentController.loadAlcoholArray()
-        parentController.earnings = parentController.earnings + costForBottle
+    func checkStatementForBuyingBeer() {
+        if selectedBeer.litre - litreForBottle > 0 {
+            beerError.text = "Пива на складе хватает"
+            beerError.textColor = .green
+            buyBeerButton.isEnabled = true
+        } else {
+            beerError.text = "Пива на складе не хватает"
+            beerError.textColor = .red
+            buyBeerButton.isEnabled = false
+        }
     }
 }

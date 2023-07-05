@@ -8,7 +8,6 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    var menuController: ViewController!
     var earning: Decimal = 0
     var allEarning: Decimal = 0
     @IBOutlet weak var allEarningLabel: UILabel!
@@ -19,7 +18,10 @@ class SettingsViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-       refreshLabels()
+        super.viewWillAppear(animated)
+        earning = BarManager.managment.getEarningDay()
+        allEarning = BarManager.managment.getEarningAll()
+        refreshLabels()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,19 +38,16 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func refreshButtonAction(_ sender: Any) {
-        if refreshButton.titleLabel?.text! == "Новая смена" {
-            refreshButton.setTitle("Обновленная смена", for: .normal)
-        } else {
-            refreshButton.setTitle("Новая смена", for: .normal)
-        }
         allEarning = allEarning + earning
-        menuController.earnings = 0
+        BarManager.managment.setEarningDay(newValue: 0)
+        BarManager.managment.setEarningAll(newValue: allEarning)
         earning = 0
         refreshLabels()
     }
     
     @IBAction func nullButtonAction(_ sender: Any) {
-        menuController.earnings = 0
+        BarManager.managment.setEarningDay(newValue: 0)
+        BarManager.managment.setEarningAll(newValue: 0)
         earning = 0
         allEarning = 0
         refreshLabels()

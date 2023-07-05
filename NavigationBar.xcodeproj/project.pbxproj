@@ -15,6 +15,9 @@
 		E01BE2DB2A41913E00BC2531 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01BE2D92A41913E00BC2531 /* LaunchScreen.storyboard */; };
 		E01BE2E72A422CE600BC2531 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01BE2E62A422CE600BC2531 /* SettingsViewController.swift */; };
 		E01BE2E92A42311F00BC2531 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01BE2E82A42311F00BC2531 /* ProfileViewController.swift */; };
+		E03D092C2A4B172D002FAE24 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03D092B2A4B172D002FAE24 /* NavigationController.swift */; };
+		E0ECD8EA2A4F4C7F00943696 /* BarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECD8E92A4F4C7F00943696 /* BarManager.swift */; };
+		E0ECD8EC2A4F4F8300943696 /* SoldBeerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECD8EB2A4F4F8300943696 /* SoldBeerProtocol.swift */; };
 		E0F546412A48800D00D3175D /* BeerDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F546402A48800D00D3175D /* BeerDescriptionViewController.swift */; };
 		E0F546432A4884EC00D3175D /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F546422A4884EC00D3175D /* Beer.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +33,9 @@
 		E01BE2DC2A41913E00BC2531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E01BE2E62A422CE600BC2531 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E01BE2E82A42311F00BC2531 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E03D092B2A4B172D002FAE24 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		E0ECD8E92A4F4C7F00943696 /* BarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarManager.swift; sourceTree = "<group>"; };
+		E0ECD8EB2A4F4F8300943696 /* SoldBeerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoldBeerProtocol.swift; sourceTree = "<group>"; };
 		E0F546402A48800D00D3175D /* BeerDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDescriptionViewController.swift; sourceTree = "<group>"; };
 		E0F546422A4884EC00D3175D /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,10 +77,13 @@
 				E01BE2E62A422CE600BC2531 /* SettingsViewController.swift */,
 				E01BE2E82A42311F00BC2531 /* ProfileViewController.swift */,
 				E0F546422A4884EC00D3175D /* Beer.swift */,
+				E03D092B2A4B172D002FAE24 /* NavigationController.swift */,
 				E01BE2D42A41913D00BC2531 /* Main.storyboard */,
 				E01BE2D72A41913E00BC2531 /* Assets.xcassets */,
 				E01BE2D92A41913E00BC2531 /* LaunchScreen.storyboard */,
 				E01BE2DC2A41913E00BC2531 /* Info.plist */,
+				E0ECD8E92A4F4C7F00943696 /* BarManager.swift */,
+				E0ECD8EB2A4F4F8300943696 /* SoldBeerProtocol.swift */,
 			);
 			path = NavigationBar;
 			sourceTree = "<group>";
@@ -151,10 +160,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E01BE2D32A41913D00BC2531 /* ViewController.swift in Sources */,
+				E03D092C2A4B172D002FAE24 /* NavigationController.swift in Sources */,
+				E0ECD8EA2A4F4C7F00943696 /* BarManager.swift in Sources */,
 				E01BE2CF2A41913D00BC2531 /* AppDelegate.swift in Sources */,
 				E0F546432A4884EC00D3175D /* Beer.swift in Sources */,
 				E01BE2E92A42311F00BC2531 /* ProfileViewController.swift in Sources */,
 				E01BE2D12A41913D00BC2531 /* SceneDelegate.swift in Sources */,
+				E0ECD8EC2A4F4F8300943696 /* SoldBeerProtocol.swift in Sources */,
 				E01BE2E72A422CE600BC2531 /* SettingsViewController.swift in Sources */,
 				E0F546412A48800D00D3175D /* BeerDescriptionViewController.swift in Sources */,
 			);
